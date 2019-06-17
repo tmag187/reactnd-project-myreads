@@ -10,7 +10,9 @@ class Shelf extends Component {
             <div>
                 <h2>{this.props.shelfName}</h2>
                 {this.props.addBookButton && <div className="open-search"><Link to='book/search'><button onClick="" >Add a Book</button></Link></div>}
-                {books.map((book) => (<Book book={book}/>))}
+                <div className="books-grid">
+                {books.map((book) => (<Book book={book} />))}
+                </div>
             </div>
         )
     }

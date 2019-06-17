@@ -3,14 +3,18 @@ import SearchEntry from './SearchEntry';
 import SearchResults from './SearchResults';
 
 export class FindBook extends Component {
-    updateResults = () => {
+    state = {
+        results:[]
+    }
+    updateResults = (books) => {
         console.log("updating book results...");
+        this.setState({results:books});
     }
     render() {
         return (
             <div>
                 <SearchEntry update={this.updateResults} />
-                <SearchResults />
+                <SearchResults books={this.state.results} />
             </div>
         )
     }

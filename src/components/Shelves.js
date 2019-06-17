@@ -9,8 +9,8 @@ export class Shelves extends Component {
 
     }
     
-    state = {shelves:[{name:'current',label:'Currently Reading', books:[], addBookButton:false}, 
-    {name:'planned', label:'Want to Read', books:[], addBookButton:true},
+    state = {shelves:[{name:'currentlyReading',label:'Currently Reading', books:[], addBookButton:false}, 
+    {name:'wantToRead', label:'Want to Read', books:[], addBookButton:true},
     {name:'read', label:'Read', books:[], addBookButton:false}
     ]};
 
@@ -18,11 +18,18 @@ export class Shelves extends Component {
         let currentBooks = ext.currentShelves();
          console.log(currentBooks.books[0]);
          let cshelves = this.state.shelves;
-         let shelf = [];
-         cshelves[0].books.push(currentBooks.books[0]);
-         cshelves[1].books.push(currentBooks.books[1]);
-         cshelves[2].books.push(currentBooks.books[2]);
+         currentBooks.books.forEach((book) => {
+             if (book.shelf === cshelves[0].name) {
+                cshelves[0].books.push(book);
+             } else if (book.shelf === cshelves[1].name) {
+                cshelves[1].books.push(book); 
+             } else if (book.shelf === cshelves[2].name) {
+                cshelves[2].books.push(book); 
+             }
+         });
+         
          this.setState({shelves: cshelves});
+         console.log(this.state.shelves);
     }
     render() {
         const { shelves } = this.state;
