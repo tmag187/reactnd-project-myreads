@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export class SearchEntry extends Component {
     state = {entry:''
@@ -14,6 +15,7 @@ export class SearchEntry extends Component {
         return (
             <React.Fragment>
                 <div  className="search-books-bar">
+                  <Link to='/'><button className="close-search">Close</button></Link>
                   <input type="text" name="entry" placeholder="Find a Book..." onChange={this.updateEntry} />
                </div>
             </React.Fragment>

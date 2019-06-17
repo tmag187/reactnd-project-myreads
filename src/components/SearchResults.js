@@ -7,7 +7,6 @@ class SearchResults extends Component {
         return (
             <div className="search-books-results">
                 <h2>Results</h2>
-                <Book />
             </div>
         )
     }
