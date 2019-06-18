@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
 
+
+
 export class BookShelfChanger extends Component {
+    handleSelection = (e) => {
+        this.props.change(e.target.value);
+    }
     render() {
+        let { shelf } = this.props;
+        console.log(shelf);
+        if (shelf === undefined) {
+            shelf = "none";
+        }
         return (
             <div>
                 <div className="book-shelf-changer">
-                              <select>
+                              <select onChange={this.handleSelection} value={shelf}>
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
