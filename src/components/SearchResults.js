@@ -10,7 +10,7 @@ class SearchResults extends Component {
             <div className="search-books-results">
                 <h2>Results</h2>
                 <div className="books-grid">
-                {books === undefined ? <h2>No Books Found</h2> : books.map((book) => (<Book book={book} />))}
+                {books === undefined ? <h2>No Books Found</h2> : books.map((book, index) => (<Book key={index} book={book} />))}
                 </div>
             </div>
         )

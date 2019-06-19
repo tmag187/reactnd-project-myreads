@@ -8,7 +8,7 @@ export class SearchEntry extends Component {
     updateEntry = (e) => {
         const { update } = this.props;
         let entry = e.target.value;
-        console.log(entry);    
+        console.log("entry " + entry);    
         this.setState({[e.target.name]:entry}); 
        // entry = entry;
         lib.search(entry)

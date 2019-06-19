@@ -11,10 +11,10 @@ class Shelf extends Component {
         const { books } = this.props;
         return (
             <div>
-                <h2>{this.props.shelfName}</h2>
-                {this.props.addBookButton && <div className="open-search"><Link to='book/search'><button onClick="" >Add a Book</button></Link></div>}
+                <div className="bookshelf-title"><h2>{this.props.shelfName}</h2></div>
+                {this.props.addBookButton && <div className="open-search"><Link to='search'><button>Add a Book</button></Link></div>}
                 <div className="books-grid">
-                {books.map((book) => (<Book book={book} updateShelf={this.updateShelf} />))}
+                {books.map((book, index) => (<Book key={index} book={book} updateShelf={this.updateShelf} />))}
                 </div>
             </div>
         )

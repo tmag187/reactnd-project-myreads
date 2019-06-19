@@ -11,6 +11,7 @@ export class FindBook extends Component {
         this.setState({results:books});
     }
     render() {
+      //  console.log(this.props.setShelves());
         return (
             <div>
                 <SearchEntry update={this.updateResults} />

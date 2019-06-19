@@ -5,6 +5,16 @@ import Shelves from './components/Shelves';
 import FindBook from './components/FindBook';
 
 class App extends Component {
+
+
+  
+  state = {shelfStatus:{}};
+
+  setShelves = (status) => {
+    console.log("set shelves");
+    this.setState({shelfStatus:status});
+  }
+
   render () {
   return (
     <div className="App">
@@ -12,8 +22,8 @@ class App extends Component {
       <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Shelves} />
-          <Route exact path="/book/search" component={FindBook} />
+          <Route exact path="/" render={(props) => <Shelves {...props} setShelves={this.setShelves} />} />
+          <Route exact path="/search" render={(props) => <FindBook {...props} setShelves={this.setShelves} shelves={this.state.shelfStatus} />} />
         </Switch>
       </div>
       </Router>

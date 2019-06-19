@@ -67,7 +67,7 @@ export class Book extends Component {
                           <BookShelfChanger change={this.changeShelf} shelf={book.shelf} />
                           </div>
                           <div className="book-title">{title}</div>
-                          <div className="book-authors">{authors !== undefined  && authors.map((author) => (<div>{author}</div>))}</div>
+                          <div className="book-authors">{authors !== undefined  && authors.map((author, index) => (<div key={index}>{author}</div>))}</div>
                         </div>
             </React.Fragment>
         )

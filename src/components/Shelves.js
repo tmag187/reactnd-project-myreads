@@ -16,6 +16,7 @@ export class Shelves extends Component {
     ]};
 
     updateShelves = (currentBooks) => {
+        let shelfStatus = {};
         currentBooks = lib.getAll()
         .then(currentBooks => {
             console.log(currentBooks);
@@ -32,7 +33,9 @@ export class Shelves extends Component {
                 } else if (book.shelf === cshelves[2].name) {
                    cshelves[2].books.push(book); 
                 }
-            });         
+                shelfStatus[book.id] = book.shelf;
+            });  
+            this.props.setShelves(shelfStatus);       
             this.setState({shelves: cshelves});
             console.log(this.state.shelves);
            })
@@ -41,16 +44,16 @@ export class Shelves extends Component {
     }
 
     componentDidMount() {
-        let currentBooks = ext.currentShelves();
-         console.log(currentBooks.books[0]);
-         this.updateShelves(currentBooks);
+     //   let currentBooks = ext.currentShelves();
+     //    console.log(currentBooks.books[0]);
+         this.updateShelves();
     }
     render() {
         const { shelves } = this.state;
         return (
             <div>
-                <h3 className="list-books-title">Shelves Page</h3>
-                {shelves.map((shelf) => (<Shelf shelfName={shelf.label} addBookButton={shelf.addBookButton} books={shelf.books} updateShelves={this.updateShelves} />))}
+                <div className="list-books-title"><h1>Shelves Page</h1></div>
+                {shelves.map((shelf, index) => (<Shelf key={index} shelfName={shelf.label} addBookButton={shelf.addBookButton} books={shelf.books} updateShelves={this.updateShelves} />))}
             </div>
         )
     }
