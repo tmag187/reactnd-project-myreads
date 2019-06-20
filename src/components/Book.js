@@ -12,10 +12,10 @@ export class Book extends Component {
     }
 
     setShelf = () => {
-      console.log("book id " + this.props.book.id);
+   //   console.log("book id " + this.props.book.id);
       lib.get(this.props.book.id)
       .then(data => {
-         console.log("book by id " + data.shelf);
+   //      console.log("book by id " + data.shelf);
          if (data.shelf === undefined) {
            this.props.book.shelf = "none";
          } else {
@@ -44,7 +44,8 @@ export class Book extends Component {
         if (book.shelf === undefined) {
     //      this.setShelf();
         }
-        console.log("book shelf ^^^" + book.shelf);
+     //   console.log("book shelf ^^^" + book);
+      //  console.log(book.title);
         let image;
         let authors = [];
         try {
@@ -58,7 +59,7 @@ export class Book extends Component {
         } catch {
           authors[0] = "";
         }
-        console.log(image);
+     //   console.log(image);
         return (
             <React.Fragment>
             <div className="book">

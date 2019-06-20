@@ -8,7 +8,7 @@ export class BookShelfChanger extends Component {
     }
     render() {
         let { shelf } = this.props;
-        console.log(shelf);
+     //   console.log(shelf);
         if (shelf === undefined) {
             shelf = "none";
         }

@@ -11,11 +11,12 @@ export class FindBook extends Component {
         this.setState({results:books});
     }
     render() {
-      //  console.log(this.props.setShelves());
+        const { shelves } = this.props;
+        console.log(shelves);
         return (
             <div>
                 <SearchEntry update={this.updateResults} />
-                <SearchResults books={this.state.results} />
+                <SearchResults books={this.state.results} shelves={shelves} />
             </div>
         )
     }
