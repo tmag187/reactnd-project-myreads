@@ -1,3 +1,5 @@
+// Used for testing from a static file containing JSON
+
 function currentShelves() {
  let currentShelves = {
     "books": [

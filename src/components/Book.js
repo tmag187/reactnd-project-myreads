@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 var lib = require('../utils/BooksAPI.js');
 
 export class Book extends Component {
-    static propTypes = {
-
-    }
+    
     state = {
       currentShelf:''
     }
@@ -32,7 +30,6 @@ export class Book extends Component {
       this.setState({currentShelf:shelf});
       lib.update(book, shelf)
       .then(data => {
-        // console.log(data);
         this.props.updateShelf();
        })
        .catch(err => console.log(err));
@@ -59,7 +56,6 @@ export class Book extends Component {
         } catch {
           authors[0] = "";
         }
-     //   console.log(image);
         return (
             <React.Fragment>
             <div className="book">
@@ -72,6 +68,9 @@ export class Book extends Component {
                         </div>
             </React.Fragment>
         )
+    }
+    static propTypes = {
+      book : PropTypes.object.isRequired
     }
 }
 

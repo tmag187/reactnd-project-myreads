@@ -19,6 +19,9 @@ class Shelf extends Component {
             </div>
         )
     }
+    static propTypes = {
+        books : PropTypes.array.isRequired
+      }
 }
 
 export default Shelf

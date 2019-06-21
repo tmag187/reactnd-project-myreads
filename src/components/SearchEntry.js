@@ -7,10 +7,8 @@ export class SearchEntry extends Component {
     };
     updateEntry = (e) => {
         const { update } = this.props;
-        let entry = e.target.value;
-        console.log("entry " + entry);    
+        let entry = e.target.value;    
         this.setState({[e.target.name]:entry}); 
-       // entry = entry;
         lib.search(entry)
         .then(data => {
            // console.log(data);
@@ -26,7 +24,9 @@ export class SearchEntry extends Component {
             <React.Fragment>
                 <div  className="search-books-bar">
                   <Link to='/'><button className="close-search">Close</button></Link>
+                  <div className="search-books-input-wrapper">
                   <input type="text" name="entry" placeholder="Find a Book..." onChange={this.updateEntry} />
+                  </div>
                </div>
             </React.Fragment>
         )

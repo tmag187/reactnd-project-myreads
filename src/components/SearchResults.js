@@ -17,7 +17,7 @@ class SearchResults extends Component {
     }
 
     render() {
-        const { books } = this.props;
+    const { books } = this.props;
   //  console.log("*>"+books);
     this.setSearchShelves();
         return (
